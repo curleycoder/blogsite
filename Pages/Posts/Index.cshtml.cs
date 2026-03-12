@@ -19,11 +19,11 @@ namespace BlogSite.Pages_Posts
             _context = context;
         }
 
-        public IList<Post> Post { get;set; } = default!;
+        public IList<Post> Post { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Post = await _context.Post.ToListAsync();
+            Post = await _context.Posts.ToListAsync();
         }
     }
 }

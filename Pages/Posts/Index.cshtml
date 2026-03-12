@@ -2,46 +2,55 @@
 @model BlogSite.Pages_Posts.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Posts";
 }
 
-<h1>My Posts</h1>
+<section class="posts-header content-card">
+    <div class="posts-header-top">
+        <div>
+            <h1 class="mb-2">My Posts</h1>
+            <p class="posts-subtext">
+                Browse blog posts, read summaries, and manage content.
+            </p>
+        </div>
+        <div>
+            <a asp-page="Create" class="btn btn-primary">Create New Post</a>
+        </div>
+    </div>
+</section>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+@if (Model.Post != null && Model.Post.Count > 0)
+{
+    <section class="posts-list">
+        @foreach (var item in Model.Post)
+        {
+            <article class="post-card">
+                <div class="post-card-body">
+                    <h2 class="post-title">@item.Title</h2>
 
-@foreach(var post in Model.Post){
-    <p>@post.Title</p>
+                    <p class="post-preview">
+                        @(string.IsNullOrWhiteSpace(item.Content)
+                            ? "No content available."
+                            : item.Content.Length > 180
+                                ? item.Content.Substring(0, 180) + "..."
+                                : item.Content)
+                    </p>
+
+                    <div class="post-actions">
+                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Read More</a>
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="post-link">Edit</a>
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="post-link post-link-danger">Delete</a>
+                    </div>
+                </div>
+            </article>
+        }
+    </section>
 }
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Post[0].Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Post[0].Content)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Post) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Content)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+else
+{
+    <section class="content-card empty-state">
+        <h2>No posts yet</h2>
+        <p>Start by creating your first blog post.</p>
+        <a asp-page="Create" class="btn btn-primary">Create First Post</a>
+    </section>
 }
-    </tbody>
-</table>
