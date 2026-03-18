@@ -12,14 +12,11 @@ builder.Services.AddDbContext<BlogContext>(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
-        var context = services.GetRequiredService<BlogContext>();
-        DbInitializer.Initialize(context);
-    }
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<BlogContext>();
+    DbInitializer.Initialize(context);
 }
 
 // Configure the HTTP request pipeline.
