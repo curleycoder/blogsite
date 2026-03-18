@@ -8,10 +8,6 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
 html {
   position: relative;
   min-height: 100%;
@@ -19,6 +15,45 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #FFFDF1;
+}
+
+a {
+  color: #FF9644;
+}
+
+a:hover {
+  color: #e07d2e;
+}
+
+.btn-primary {
+  background-color: #FF9644;
+  border-color: #FF9644;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #e07d2e;
+  border-color: #e07d2e;
+}
+
+.card {
+  border-left: 4px solid #FF9644;
+  margin-bottom: 15px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+  background-color: #FF9644;
+  color: white;
+}
+
+.footer a {
+  color: #FFCE99;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

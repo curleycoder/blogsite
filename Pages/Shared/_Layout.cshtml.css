@@ -1,180 +1,23 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-html {
-  font-size: 16px;
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom, #f8fafc, #eef2ff);
-  color: #1f2937;
-  line-height: 1.6;
-}
-
-/* Global links */
-a {
-  color: #6d28d9;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-a:hover {
-  color: #4c1d95;
-  text-decoration: underline;
-}
-
-/* Header / Navbar */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.site-navbar {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
-  padding: 0.9rem 0;
-}
-
-.site-logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #111827 !important;
-}
-
-.navbar-nav .nav-link {
-  color: #374151 !important;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 0.55rem 0.9rem !important;
-  transition: all 0.2s ease;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  background: #ede9fe;
-  color: #5b21b6 !important;
-  text-decoration: none;
-}
-
-/* Page layout */
-.page-shell {
-  flex: 1;
-  width: 100%;
-}
-
-.site-main {
-  padding-top: 2.5rem;
-  padding-bottom: 3rem;
-  max-width: 960px;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5 {
-  color: #111827;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.75rem;
-}
-
-h1 {
-  font-size: 2.4rem;
-}
-
-h2 {
-  font-size: 1.8rem;
-}
-
-p {
-  color: #4b5563;
-  margin-bottom: 1rem;
-}
-
-/* Buttons */
-.btn-primary {
-  background: #6d28d9;
-  border-color: #6d28d9;
-  color: #fff;
-  border-radius: 12px;
-  font-weight: 600;
-  padding: 0.7rem 1.2rem;
-}
-
-.btn-primary:hover,
-.btn-primary:focus {
-  background: #5b21b6;
-  border-color: #5b21b6;
-}
-
-/* Cards / content blocks */
-.card,
-.content-card,
-.post-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-  margin-bottom: 1.5rem;
-}
-
-/* Footer */
-.site-footer {
-  background: #ffffff;
-  border-top: 1px solid #e5e7eb;
-  padding: 1.25rem 0;
-  margin-top: auto;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.footer-copy {
-  color: #6b7280;
-  font-size: 0.95rem;
-}
-
-/* Old template cleanup */
-.footer {
-  position: static;
-  width: auto;
+a.navbar-brand {
   white-space: normal;
-  line-height: normal;
+  text-align: center;
+  word-break: break-all;
 }
 
-.border-top,
-.border-bottom,
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
 .box-shadow {
-  border: 0 !important;
-  box-shadow: none !important;
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .site-main {
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .site-logo {
-    font-size: 1.3rem;
-  }
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #FF9644;
+  border-color: #FF9644;
 }
-

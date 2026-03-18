@@ -23,6 +23,9 @@ namespace BlogSite.Pages_Posts
         [BindProperty]
         public Post Post { get; set; } = default!;
 
+        public SelectList AuthorOptions { get; set; }
+        public SelectList CategoryOptions { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -36,6 +39,10 @@ namespace BlogSite.Pages_Posts
                 return NotFound();
             }
             Post = post;
+
+            AuthorOptions = new SelectList(_context.Authors, "Id", "Name", post.AuthorId);
+            CategoryOptions = new SelectList(_context.Categories, "Id", "Name", post.CategoryId);
+
             return Page();
         }
 
@@ -45,6 +52,8 @@ namespace BlogSite.Pages_Posts
         {
             if (!ModelState.IsValid)
             {
+                AuthorOptions = new SelectList(_context.Authors, "Id", "Name", Post.AuthorId);
+                CategoryOptions = new SelectList(_context.Categories, "Id", "Name", Post.CategoryId);
                 return Page();
             }
 

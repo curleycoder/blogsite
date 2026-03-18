@@ -9,4 +9,6 @@ public class Author
     public string LastName { get; set; }
 
     public string Name => $"{LastName}, {FirstName}";
+
+    public List<Post> Posts { get; set; } = new();
 }

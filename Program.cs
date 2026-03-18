@@ -18,7 +18,6 @@ if (app.Environment.IsDevelopment())
     {
         var services = scope.ServiceProvider;
         var context = services.GetRequiredService<BlogContext>();
-
         DbInitializer.Initialize(context);
     }
 }

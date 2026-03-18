@@ -6,19 +6,37 @@
 }
 
 <h1>@Model.Post.Title</h1>
+<p class="text-muted">By @Model.Post.Author?.Name &mdash; @Model.Post.Category?.Name</p>
 
 <div class="row">
     <div class="col-md-8">
-        <p>@Model.Post.Content</p>
-
+        <div class="card">
+            <div class="card-body">
+                <p>@Model.Post.Content</p>
+            </div>
+        </div>
+        <div class="mt-2">
+            <a asp-page="./Edit" asp-route-id="@Model.Post.Id">Edit</a> |
+            <a asp-page="/Index">Back to List</a>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h3>Related Posts</h3>
+
+    <div class="col-md-4 text-center">
+        <h3>Related posts</h3>
+        @if (!Model.RelatedPosts.Any())
+        {
+            <p class="text-muted">No related posts.</p>
+        }
+        else
+        {
+            <ul class="text-start">
+                @foreach (var related in Model.RelatedPosts)
+                {
+                    <li>
+                        <a asp-page="./Details" asp-route-id="@related.Id">@related.Title</a>
+                    </li>
+                }
+            </ul>
+        }
     </div>
-
-</div>
-
-<div class="post-details-actions">
-    <a asp-page="./Edit" asp-route-id="@Model.Post.Id">Edit</a> |
-    <a asp-page="/Index">Back to Lists</a>
 </div>

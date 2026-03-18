@@ -1,0 +1,25 @@
+@page
+@model BlogSite.Pages_Categories.DetailsModel
+
+@{
+    ViewData["Title"] = Model.Category.Name;
+}
+
+<h1>@Model.Category.Name</h1>
+<hr />
+
+@foreach (var post in Model.Category.Posts)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">@post.Title</h3>
+            <p class="text-muted">by @post.Author.Name</p>
+            <p class="card-text">@post.Excerpt</p>
+            <a asp-page="/Posts/Details" asp-route-id="@post.Id">Read more</a>
+        </div>
+    </div>
+}
+
+<div>
+    <a asp-page="/Index">Back to List</a>
+</div>

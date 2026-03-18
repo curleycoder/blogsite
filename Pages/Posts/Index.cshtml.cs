@@ -23,7 +23,10 @@ namespace BlogSite.Pages_Posts
 
         public async Task OnGetAsync()
         {
-            Post = await _context.Posts.ToListAsync();
+            Post = await _context.Posts
+                .Include(p => p.Author)
+                .Include(p => p.Category)
+                .ToListAsync();
         }
     }
 }
